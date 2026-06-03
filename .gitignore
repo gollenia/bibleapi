@@ -1,0 +1,13 @@
+bibleapi
+bibleapi_linux
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+db/*
+!db/.gitkeep
+
+.docker/
+*.log
