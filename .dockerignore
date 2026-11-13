@@ -2,7 +2,8 @@
 .github
 .docker
 .env
-db
+db/*
+!db/*.SQLite3
 bibleapi
 bibleapi_linux
 *.log

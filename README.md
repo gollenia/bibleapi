@@ -53,17 +53,8 @@ make build
 
 ## Run With Docker
 
-The published image deliberately contains no Bible translation data. Mount a directory
-containing one or more SQLite files into `/app/db`; it is mounted read-only.
-
-Create a `.env` file alongside `docker-compose.yml` with the absolute path to your
-database directory:
-
-```dotenv
-BIBLE_DB_PATH=/srv/bible-data
-```
-
-Then start the API:
+The image includes the German, English, and French Bible databases. Start the API
+with Docker Compose:
 
 ```bash
 docker compose up -d
@@ -73,11 +64,11 @@ The image is published to GitHub Container Registry as
 `ghcr.io/gollenia/bibleapi:latest`. For a specific release, use its version tag
 instead of `latest` in `docker-compose.yml`.
 
-To build locally (also without including `db/` in the image), run:
+To build and run the image locally:
 
 ```bash
 docker build -t bibleapi .
-docker run --rm -p 8080:8080 -v /srv/bible-data:/app/db:ro bibleapi
+docker run --rm -p 8080:8080 bibleapi
 ```
 
 ## Translation Selection

@@ -24,8 +24,9 @@ RUN apk add --no-cache ca-certificates tzdata
 
 WORKDIR /app
 
-# Nur das fertige Binary aus Stage 1 herüberkopieren
+# Binary und Bibeldatenbanken ins Laufzeit-Image übernehmen
 COPY --from=builder /app/bibleapi .
+COPY db/*.SQLite3 ./db/
 
 # Den Port für Fiber nach außen freigeben
 EXPOSE 8080
