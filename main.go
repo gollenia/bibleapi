@@ -3,8 +3,8 @@ package main
 import (
 	"database/sql"
 	"log"
-	"strings"
 	"sort"
+	"strings"
 
 	"github.com/gofiber/fiber/v2"
 	_ "github.com/ncruces/go-sqlite3/driver"
@@ -14,6 +14,10 @@ func main() {
 	initStorage()
 
 	app := fiber.New()
+
+	app.Get("/health", func(c *fiber.Ctx) error {
+		return c.SendStatus(fiber.StatusNoContent)
+	})
 
 	app.Get("/books", func(c *fiber.Ctx) error {
 		translationParam := getTranslationParam(c)
@@ -52,7 +56,7 @@ func main() {
 				ID:     shortName,
 				Name:   longName,
 				Order:  order,
-				Verses: chaptersMap, 
+				Verses: chaptersMap,
 			})
 		}
 

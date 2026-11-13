@@ -1,13 +1,9 @@
-version: '3.8'
-
 services:
   bible-api:
-    build: .
-    container_name: bible_api_service
+    image: ghcr.io/gollenia/bibleapi:latest
     ports:
       - "8080:8080"
     volumes:
-      - ./db:/app/db
-    environment:
-      - NODE_ENV=production
-    restart: always
+      # Set BIBLE_DB_PATH to a directory containing one or more SQLite Bible databases.
+      - ${BIBLE_DB_PATH:?Set_BIBLE_DB_PATH_to_your_database_directory}:/app/db:ro
+    restart: unless-stopped

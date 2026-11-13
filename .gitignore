@@ -6,8 +6,10 @@ bibleapi_linux
 *.so
 *.dylib
 
-db/*
-!db/.gitkeep
+db/*.bak
+db/*.sqbpro
+db/enSQLite3
 
 .docker/
+.env
 *.log

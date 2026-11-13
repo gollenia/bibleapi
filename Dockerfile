@@ -1,5 +1,5 @@
 # --- STAGE 1: Kompilieren im Go-Container ---
-FROM golang:1.22-alpine AS builder
+FROM golang:1.26-alpine AS builder
 
 # Build-Tools installieren (wird für manche OS-Pakete benötigt)
 RUN apk add --no-cache git

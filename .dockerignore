@@ -1,0 +1,8 @@
+.git
+.github
+.docker
+.env
+db
+bibleapi
+bibleapi_linux
+*.log
